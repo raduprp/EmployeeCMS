@@ -31,7 +31,7 @@
             <table>
                 <tr>
                     <td>
-                        <form>
+                        <form onsubmit="event.preventDefault();onFormSubmit();">
                             <div>
                                 <label>First Name</label>
                                 <input type="text" name="firstName" id="firstName">
@@ -47,8 +47,8 @@
                             <div>
                                 <label for="sex">Sex</label>
                                 <select id="sex">
-                                    <option value="Male" id="male">Male</option>
-                                    <option value="Female" id="female">Female</option>
+                                    <option name="male" value="Male" id="sex">Male</option>
+                                    <option name="female" value="Female" id="sex">Female</option>
                                 </select>
                             </div>
                             <div>
