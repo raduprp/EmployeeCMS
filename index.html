@@ -28,6 +28,63 @@
             </nav>
             
         </header>
-       
+            <table>
+                <tr>
+                    <td>
+                        <form>
+                            <div>
+                                <label>First Name</label>
+                                <input type="text" name="firstName" id="firstName">
+                            </div> 
+                            <div>
+                                <label>Last Name</label>
+                                <input type="text" name="lastName" id="lastName">
+                            </div>
+                            <div>
+                                <label>Email</label>
+                                <input type="text" name="email" id="email">
+                            </div>
+                            <div>
+                                <label for="sex">Sex</label>
+                                <select id="sex">
+                                    <option value="Male" id="male">Male</option>
+                                    <option value="Female" id="female">Female</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Birthdate</label>
+                                <input type="date" name="birthday" id="birthday">
+                            </div>
+                            <div>
+                                <label>Image</label>
+                                <input type="file" name="image" id="image">
+                            </div>
+                            <div class="form-action-buttons">
+                                <input type="submit" value="Submit">
+                            </div>     
+                        </form>
+                    </td>
+                    <td>
+                        <table class="list" id="employeeList">
+                            <thead>
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Sex</th>
+                                    <th>Birthdate</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+
+                    </td>
+                </tr>
+            </table>
+
+        <script src="script.js"></script>
     </body>
 </html>
