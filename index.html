@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>Employee CMS</title>
+        <link href="bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="./style.css">
         <script src="https://kit.fontawesome.com/2c1cc5d331.js" crossorigin="anonymous"></script>
         <script defer src="./main.js"></script>
@@ -28,63 +29,78 @@
             </nav>
             
         </header>
-            <table>
-                <tr>
-                    <td>
-                        <form onsubmit="event.preventDefault();onFormSubmit();">
-                            <div>
-                                <label>First Name</label>
-                                <input type="text" name="firstName" id="firstName" required>
-                            </div> 
-                            <div>
-                                <label>Last Name</label>
-                                <input type="text" name="lastName" id="lastName" required>
-                            </div>
-                            <div>
-                                <label>Email</label>
-                                <input type="email" name="email" id="email" required >
-                            </div>
-                            <div>
-                                <label for="sex">Sex</label>
-                                <select id="sex" required>
-                                    <option name="male" value="Male" id="sex">Male</option>
-                                    <option name="female" value="Female" id="sex">Female</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label>Birthdate</label>
-                                <input type="date" name="birthday" min="2005-01-02" id="birthday" required>
-                            </div>
-                            <div>
-                                <label>Image</label>
-                                <input type="file" name="image" id="image" required>
-                            </div>
-                            <div class="form-action-buttons">
-                                <input type="submit" value="Submit">
-                            </div>     
-                        </form>
-                    </td>
-                    <td>
-                        <table class="list" id="employeeList">
-                            <thead>
-                                <tr>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Email</th>
-                                    <th>Sex</th>
-                                    <th>Birthdate</th>
-                                    <th>Image</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
+            
 
-                            </tbody>
-                        </table>
+            <div>
+            <table class="list" id="employeeList">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Sex</th>
+                        <th>Birthdate</th>
+                        <th>Image</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                    </td>
-                </tr>
+                </tbody>
             </table>
+            </div>
+
+            <div class="panel-body">
+
+            <form class="form-horizontal" onsubmit="event.preventDefault();onFormSubmit();">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">First Name</label>
+                    <div class="col-md-6">
+                    <input type="text" name="firstName" id="firstName" class="form-control" required>
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Last Name</label>
+                    <div class="col-md-6">
+                    <input type="text" name="lastName" id="lastName" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Email</label>
+                    <div class="col-md-6">
+                    <input type="email" name="email" id="email" class="form-control" required >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="sex">Sex</label>
+                    <div class="col-md-6">
+                    <select id="sex" class="form-control" required>
+                        <option disabled selected value></option>
+                        <option name="male" value="Male" id="sex" class="form-control">Male</option>
+                        <option name="female" value="Female" id="sex" class="form-control">Female</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Birthdate</label>
+                    <div class="col-md-6">
+                    <input type="date" name="birthday" max="2005-01-02" id="birthday" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Image</label>
+                    <div class="col-md-6">
+                    <input type="file" name="image" id="image" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-6">
+                    <input type="submit" value="Submit">
+                    </div>
+                </div>     
+            </form>
+        </div>
 
         <script src="script.js"></script>
     </body>
