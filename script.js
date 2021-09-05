@@ -31,7 +31,7 @@ function insertNewRecord(data){
     cell = newRow.insertCell(5);
     cell.innerHTML = data.image;
     cell = newRow.insertCell(6);
-    cell.innerHTML = `<a onClick="onDelete(this)">Remove</a>`;
+    cell.innerHTML = `<i class="fa fa-remove" onClick="onDelete(this)"></i>`;
 }
 
 
