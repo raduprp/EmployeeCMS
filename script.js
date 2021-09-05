@@ -3,7 +3,6 @@ function onFormSubmit() {
     insertNewRecord(formData);
     resetForm();
 }
-
 function readFormData() {
     var formData = {};
     formData["firstName"] = document.getElementById("firstName").value;
@@ -14,8 +13,7 @@ function readFormData() {
     formData["image"] = document.getElementById("image").value;
     return formData;
 }
-
-function insertNewRecord(data){
+function insertNewRecord(data) {
     var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
     cell = newRow.insertCell(0);
@@ -33,8 +31,6 @@ function insertNewRecord(data){
     cell = newRow.insertCell(6);
     cell.innerHTML = `<i class="fa fa-remove" onClick="onDelete(this)"></i>`;
 }
-
-
 function resetForm() {
     document.getElementById("firstName").value ="";
     document.getElementById("lastName").value ="";
@@ -44,7 +40,6 @@ function resetForm() {
     document.getElementById("image").value ="";
     selectedRow = null;
 }
-
 function onDelete(td) {
     if(confirm('Are you sure you want to delete this member?')){
     row= td.parentElement.parentElement;

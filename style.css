@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-*{
+* {
     padding: 0;
     margin: 0;
     text-decoration: none;
@@ -7,16 +7,16 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: montserrat;
 }
 
-nav{
+nav {
     background: #0082e6;
     height: 80px;
     width: 100%;
 }
-label.logo{
+label.logo {
     color: white;
     font-size: 35px;
     line-height: 80px;
@@ -24,11 +24,11 @@ label.logo{
     font-weight: bold;
 }
 
-nav ul{
+nav ul {
     float: right;
     margin-right: 20px;
 }
-nav ul li{
+nav ul li {
     display: inline-block;
     line-height: 80px;
     margin: 0 5px;
@@ -47,7 +47,7 @@ a.active, a:hover {
     transition: .5s;
 }
 
-.checkbtn{
+.checkbtn {
     font-size: 30px;
     color: white;
     float: right;
@@ -57,11 +57,11 @@ a.active, a:hover {
     display: none;
 }
 
-#check{
+#check {
     display: none;
 }
 
-@media (max-width: 952px){
+@media (max-width: 952px) {
     label.logo{
         font-size: 30px;
         padding-left: 50px;
@@ -71,7 +71,7 @@ a.active, a:hover {
     }
 }
 
-@media (max-width: 858px){
+@media (max-width: 858px) {
     .checkbtn{
         display: block;
     }
@@ -102,14 +102,14 @@ a.active, a:hover {
     }
 }
 
-body > table{
+body > table {
     width: 80%;
 }
 
-table{
+table {
     border-collapse: collapse;
 }
-table.list{
+table.list {
     width:100%;
 }
 
@@ -132,7 +132,7 @@ input[type=text], input[type=number] {
     box-sizing: border-box;
 }
 
-input[type=submit]{
+input[type=submit] {
     width: 30%;
     background-color: #ddd;
     color: #000;
@@ -143,22 +143,22 @@ input[type=submit]{
     cursor: pointer;
 }
 
-form div.form-action-buttons{
+form div.form-action-buttons {
     text-align: right;
 }
 
-a{
+a {
     cursor: pointer;
     
     color: #0000ee;
     margin-right: 4px;
 }
 
-label.validation-error{
+label.validation-error {
     color:   red;
     margin-left: 5px;
 }
 
-.hide{
+.hide {
     display:none;
 }
