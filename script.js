@@ -31,14 +31,23 @@ function insertNewRecord(data){
     cell = newRow.insertCell(5);
     cell.innerHTML = data.image;
     cell = newRow.insertCell(6);
-    cell.innerHTML = `<a>Remove</a>`;
+    cell.innerHTML = `<a onClick="onDelete(this)">Remove</a>`;
 }
 
+
 function resetForm() {
-    document.getElementsById("firstName").value ="";
-    document.getElementsById("lastName").value ="";
-    document.getElementsById("email").value ="";
-    document.getElementsById("sex").value ="";
-    document.getElementsById("birthday").value ="";
-    document.getElementsById("image").value ="";
+    document.getElementById("firstName").value ="";
+    document.getElementById("lastName").value ="";
+    document.getElementById("email").value ="";
+    document.getElementById("sex").value ="";
+    document.getElementById("birthday").value ="";
+    document.getElementById("image").value ="";
+    selectedRow = null;
+}
+
+function onDelete(td) {
+    if(confirm('Are you sure you want to delete this member?')){
+    row= td.parentElement.parentElement;
+    document.getElementById("employeeList").deleteRow(row.rowIndex);
+    resetForm();}
 }

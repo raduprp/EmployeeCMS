@@ -34,30 +34,30 @@
                         <form onsubmit="event.preventDefault();onFormSubmit();">
                             <div>
                                 <label>First Name</label>
-                                <input type="text" name="firstName" id="firstName">
+                                <input type="text" name="firstName" id="firstName" required>
                             </div> 
                             <div>
                                 <label>Last Name</label>
-                                <input type="text" name="lastName" id="lastName">
+                                <input type="text" name="lastName" id="lastName" required>
                             </div>
                             <div>
                                 <label>Email</label>
-                                <input type="text" name="email" id="email">
+                                <input type="text" name="email" id="email" required>
                             </div>
                             <div>
                                 <label for="sex">Sex</label>
-                                <select id="sex">
+                                <select id="sex" required>
                                     <option name="male" value="Male" id="sex">Male</option>
                                     <option name="female" value="Female" id="sex">Female</option>
                                 </select>
                             </div>
                             <div>
                                 <label>Birthdate</label>
-                                <input type="date" name="birthday" id="birthday">
+                                <input type="date" name="birthday" id="birthday" required>
                             </div>
                             <div>
                                 <label>Image</label>
-                                <input type="file" name="image" id="image">
+                                <input type="file" name="image" id="image" >
                             </div>
                             <div class="form-action-buttons">
                                 <input type="submit" value="Submit">
