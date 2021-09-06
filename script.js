@@ -1,6 +1,5 @@
 const toggleButton = document.getElementsByClassName('toggle-button')[0]
 const navbarLinks = document.getElementsByClassName('navbar-links')[0]
-
 toggleButton.addEventListener('click', () => {
   navbarLinks.classList.toggle('active')
 })
@@ -52,23 +51,17 @@ function onDelete(td) {
     document.getElementById("employeeList").deleteRow(row.rowIndex);
     resetForm();}
 }
-
 th = document.getElementsByTagName('th');
-
-for(let c=0; c< th.length; c++){
+for(let c=0; c< th.length; c++) {
     th[c].addEventListener('click',item(c))
 }
+function item(c) {
 
-function item(c){
-
-    return function(){
+    return function() {
         console.log(c)
         sortTable(c)
     }
 }
-
-
-
 function sortTable(c) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("employeeList");
