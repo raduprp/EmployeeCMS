@@ -104,6 +104,7 @@ body > table {
 }
 
 table {
+    width: 100%;
     border-collapse: collapse;
 }
 table.list {
@@ -158,4 +159,47 @@ label.validation-error {
 
 .hide {
     display:none;
+}
+
+/* responsive */
+
+@media screen and (max-width: 950px){
+    thead{
+        display: none;
+    }
+    td{
+        display: block;
+    }
+    td:first-child::before{
+        content: "First Name";
+    }
+    td:nth-child(2)::before{
+        content: "Last Name";
+    }
+
+    td:nth-child(3)::before{
+        content: "Email";
+    }
+    td:nth-child(4)::before{
+        content: "Sex";
+    }
+    td:nth-child(5)::before{
+        content: "Birthdate";
+    }
+    td:nth-child(6)::before{
+        content: "Image";
+    }
+    td:nth-child(7)::before{
+        content: "Remove";
+    }
+
+    td{
+        text-align: right;
+    }
+
+    td::before{
+        float: left;
+        margin-right: 3rem;
+        font-weight: bold;
+    }
 }
