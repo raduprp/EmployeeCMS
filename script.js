@@ -3,11 +3,13 @@ const navbarLinks = document.getElementsByClassName('navbar-links')[0]
 toggleButton.addEventListener('click', () => {
   navbarLinks.classList.toggle('active')
 })
+
 function onFormSubmit() {
     var formData = readFormData();
     insertNewRecord(formData);
     resetForm();
 }
+
 function readFormData() {
     var formData = {};
     formData["firstName"] = document.getElementById("firstName").value;
@@ -18,6 +20,7 @@ function readFormData() {
     formData["image"] = document.getElementById("image").value;
     return formData;
 }
+
 function insertNewRecord(data) {
     var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
@@ -36,6 +39,7 @@ function insertNewRecord(data) {
     cell = newRow.insertCell(6);
     cell.innerHTML = `<i class="fa fa-remove" onClick="onDelete(this)"></i>`;
 }
+
 function resetForm() {
     document.getElementById("firstName").value ="";
     document.getElementById("lastName").value ="";
@@ -45,16 +49,19 @@ function resetForm() {
     document.getElementById("image").value ="";
     selectedRow = null;
 }
+
 function onDelete(td) {
     if(confirm('Are you sure you want to delete this member?')){
     row= td.parentElement.parentElement;
     document.getElementById("employeeList").deleteRow(row.rowIndex);
     resetForm();}
 }
+
 th = document.getElementsByTagName('th');
 for(let c=0; c< th.length; c++) {
     th[c].addEventListener('click',item(c))
 }
+
 function item(c) {
 
     return function() {
@@ -62,6 +69,7 @@ function item(c) {
         sortTable(c)
     }
 }
+
 function sortTable(c) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("employeeList");
