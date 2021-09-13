@@ -3,7 +3,7 @@
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
             // TODO: Add SDKs for Firebase products that you want to use
             // https://firebase.google.com/docs/web/setup#available-libraries
-            import {getFirestore, doc, addDoc, setDoc, getDoc, getDocs, collection} from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js";
+            import {getFirestore, deleteDoc, doc, addDoc, setDoc, getDoc, getDocs, collection} from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js";
 
           
             // Your web app's Firebase configuration
@@ -82,28 +82,39 @@ const addPanelForm = document.querySelector('.panel-body .form-horizontal');
 
 const list = document.querySelector('.list');
 
-const renderUser = doc => {
+const renderUser = documentfire => {
     const tr = `
-        <tr>
-        <td>${doc.data().firstName}</td>
-        <td>${doc.data().lastName}</td>
-        <td>${doc.data().email}</td>
-        <td>${doc.data().sex}</td>
-        <td>${doc.data().birthday}</td>
-        <td>${doc.data().image}</td>
+        <tr data-id='${documentfire.id}'>
+        <td>${documentfire.data().firstName}</td>
+        <td>${documentfire.data().lastName}</td>
+        <td>${documentfire.data().email}</td>
+        <td>${documentfire.data().sex}</td>
+        <td>${documentfire.data().birthday}</td>
+        <td>${documentfire.data().image}</td>
         <td>
         
         <button class="btn btn-edit">Edit</button>
-        <i class="fa fa-remove" onClick="onDelete(this)"></i>
+        <i class="fa fa-remove"></i>
         </td>
         </tr>
     `;
     list.insertAdjacentHTML('beforeend', tr);
+
+
+    const faRemove = document.querySelector(`[data-id='${documentfire.id}'] .fa-remove`);
+    faRemove.addEventListener('click', async () => {
+        await deleteDoc(doc(db,'members', documentfire.id))
+        faRemove.closest("tr").remove();
+    });
+
 }
 
-whatever();
 
-async function whatever(){
+
+
+getMembers();
+
+async function getMembers(){
 const querySnapshot = await getDocs(collection(db,'members'))
 querySnapshot.forEach (doc => {
     renderUser(doc);
@@ -111,9 +122,9 @@ querySnapshot.forEach (doc => {
 }
 
 
-whatever1();
+addMember();
 
-async function whatever1(){
+async function addMember(){
     addPanelForm.addEventListener('submit', async e => {
     e.preventDefault();
     const querySnapshot = await addDoc(collection(db,'members'),{
@@ -128,4 +139,6 @@ async function whatever1(){
 })
 
 }
+
+
 
