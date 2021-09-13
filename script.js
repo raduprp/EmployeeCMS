@@ -1,63 +1,33 @@
+
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+            import {getFirestore, doc, addDoc, setDoc, getDoc, getDocs, collection} from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js";
+
+          
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+              apiKey: "AIzaSyBEx9pDZF88KwsgtDXz3-opt2paHJSVD6k",
+              authDomain: "employeecms3.firebaseapp.com",
+              projectId: "employeecms3",
+              storageBucket: "employeecms3.appspot.com",
+              messagingSenderId: "624284959348",
+              appId: "1:624284959348:web:55a05c699cdf6b7b12c721"
+            };
+          
+            // Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 const toggleButton = document.getElementsByClassName('toggle-button')[0]
 const navbarLinks = document.getElementsByClassName('navbar-links')[0]
 toggleButton.addEventListener('click', () => {
   navbarLinks.classList.toggle('active')
 })
 
-function onFormSubmit() {
-    var formData = readFormData();
-    insertNewRecord(formData);
-    resetForm();
-}
 
-function readFormData() {
-    var formData = {};
-    formData["firstName"] = document.getElementById("firstName").value;
-    formData["lastName"] = document.getElementById("lastName").value;
-    formData["email"] = document.getElementById("email").value;
-    formData["sex"] = document.getElementById("sex").value;
-    formData["birthday"] = document.getElementById("birthday").value;
-    formData["image"] = document.getElementById("image").value;
-    return formData;
-}
-
-function insertNewRecord(data) {
-    var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
-    var newRow = table.insertRow(table.length);
-    cell = newRow.insertCell(0);
-    cell.innerHTML = data.firstName;
-    cell = newRow.insertCell(1);
-    cell.innerHTML = data.lastName;
-    cell = newRow.insertCell(2);
-    cell.innerHTML = data.email;
-    cell = newRow.insertCell(3);
-    cell.innerHTML = data.sex;
-    cell = newRow.insertCell(4);
-    cell.innerHTML = data.birthday;
-    cell = newRow.insertCell(5);
-    cell.innerHTML = data.image;
-    cell = newRow.insertCell(6);
-    cell.innerHTML = `<i class="fa fa-remove" onClick="onDelete(this)"></i>`;
-}
-
-function resetForm() {
-    document.getElementById("firstName").value ="";
-    document.getElementById("lastName").value ="";
-    document.getElementById("email").value ="";
-    document.getElementById("sex").value ="";
-    document.getElementById("birthday").value ="";
-    document.getElementById("image").value ="";
-    selectedRow = null;
-}
-
-function onDelete(td) {
-    if(confirm('Are you sure you want to delete this member?')){
-    row= td.parentElement.parentElement;
-    document.getElementById("employeeList").deleteRow(row.rowIndex);
-    resetForm();}
-}
-
-th = document.getElementsByTagName('th');
+var th = document.getElementsByTagName('th');
 for(let c=0; c< th.length; c++) {
     th[c].addEventListener('click',item(c))
 }
@@ -106,3 +76,56 @@ function sortTable(c) {
         }
     }
 }
+
+
+const addPanelForm = document.querySelector('.panel-body .form-horizontal');
+
+const list = document.querySelector('.list');
+
+const renderUser = doc => {
+    const tr = `
+        <tr>
+        <td>${doc.data().firstName}</td>
+        <td>${doc.data().lastName}</td>
+        <td>${doc.data().email}</td>
+        <td>${doc.data().sex}</td>
+        <td>${doc.data().birthday}</td>
+        <td>${doc.data().image}</td>
+        <td>
+        
+        <button class="btn btn-edit">Edit</button>
+        <i class="fa fa-remove" onClick="onDelete(this)"></i>
+        </td>
+        </tr>
+    `;
+    list.insertAdjacentHTML('beforeend', tr);
+}
+
+whatever();
+
+async function whatever(){
+const querySnapshot = await getDocs(collection(db,'members'))
+querySnapshot.forEach (doc => {
+    renderUser(doc);
+})
+}
+
+
+whatever1();
+
+async function whatever1(){
+    addPanelForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const querySnapshot = await addDoc(collection(db,'members'),{
+        firstName: addPanelForm.firstName.value,
+        lastName: addPanelForm.lastName.value,
+        email: addPanelForm.email.value,
+        sex: addPanelForm.sex.value,
+        birthday: addPanelForm.birthday.value,
+        image: addPanelForm.image.value
+    })
+
+})
+
+}
+
