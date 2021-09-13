@@ -1,20 +1,17 @@
-
-            // Import the functions you need from the SDKs you need
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
-            // TODO: Add SDKs for Firebase products that you want to use
-            // https://firebase.google.com/docs/web/setup#available-libraries
-            import {getFirestore, deleteDoc, doc, addDoc, setDoc, getDoc, getDocs, collection} from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js";
-
-          
-            // Your web app's Firebase configuration
-            const firebaseConfig = {
-              apiKey: "AIzaSyBEx9pDZF88KwsgtDXz3-opt2paHJSVD6k",
-              authDomain: "employeecms3.firebaseapp.com",
-              projectId: "employeecms3",
-              storageBucket: "employeecms3.appspot.com",
-              messagingSenderId: "624284959348",
-              appId: "1:624284959348:web:55a05c699cdf6b7b12c721"
-            };
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore, deleteDoc, doc, addDoc, setDoc, getDoc, getDocs, collection} from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js";
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyBEx9pDZF88KwsgtDXz3-opt2paHJSVD6k",
+    authDomain: "employeecms3.firebaseapp.com",
+    projectId: "employeecms3",
+    storageBucket: "employeecms3.appspot.com",
+    messagingSenderId: "624284959348",
+    appId: "1:624284959348:web:55a05c699cdf6b7b12c721"
+};
           
             // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -25,7 +22,6 @@ const navbarLinks = document.getElementsByClassName('navbar-links')[0]
 toggleButton.addEventListener('click', () => {
   navbarLinks.classList.toggle('active')
 })
-
 
 var th = document.getElementsByTagName('th');
 for(let c=0; c< th.length; c++) {
@@ -77,7 +73,6 @@ function sortTable(c) {
     }
 }
 
-
 const addPanelForm = document.querySelector('.panel-body .form-horizontal');
 
 const list = document.querySelector('.list');
@@ -92,14 +87,12 @@ const renderUser = documentfire => {
         <td>${documentfire.data().birthday}</td>
         <td>${documentfire.data().image}</td>
         <td>
-        
         <button class="btn btn-edit">Edit</button>
         <i class="fa fa-remove"></i>
         </td>
         </tr>
     `;
     list.insertAdjacentHTML('beforeend', tr);
-
 
     const faRemove = document.querySelector(`[data-id='${documentfire.id}'] .fa-remove`);
     faRemove.addEventListener('click', async () => {
@@ -109,9 +102,6 @@ const renderUser = documentfire => {
 
 }
 
-
-
-
 getMembers();
 
 async function getMembers(){
@@ -120,7 +110,6 @@ querySnapshot.forEach (doc => {
     renderUser(doc);
 })
 }
-
 
 addMember();
 
@@ -137,7 +126,6 @@ async function addMember(){
     })
 
 })
-
 }
 
 
